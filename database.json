@@ -249,7 +249,7 @@
       "catexp": 0
     },
     "6285607031124@s.whatsapp.net": {
-      "exp": 245,
+      "exp": 258,
       "limit": 100,
       "lastclaim": 0,
       "registered": false,
@@ -491,10 +491,10 @@
   },
   "stats": {
     "menu.js": {
-      "total": 56,
-      "success": 56,
-      "last": 1653775236358,
-      "lastSuccess": 1653775236358
+      "total": 57,
+      "success": 57,
+      "last": 1653775305260,
+      "lastSuccess": 1653775305260
     },
     "creator.js": {
       "total": 7,
