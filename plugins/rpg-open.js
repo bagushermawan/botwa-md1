@@ -110,7 +110,7 @@ Congrats you got a epic item, which is ${pet ? `*${pet}* ${rpg.emoticon('pet')}p
 `.trim())
 }
 handler.help = ['open', 'gacha'].map(v => v + ' [crate] [count]')
-handler.tags = ['rpg']
+// handler.tags = ['rpg']
 handler.command = /^(open|buka|gacha)$/i
 
 export default handler

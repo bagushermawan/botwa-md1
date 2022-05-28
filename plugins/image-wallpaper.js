@@ -6,7 +6,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     conn.sendFile(m.chat, img, 'wallpaper.jpg', `Result from *${text}*`, m)
 }
 handler.help = ['', '2'].map(v => 'wallpaper' + v + ' <query>')
-handler.tags = ['downloader']
+// handler.tags = ['downloader']
 
 handler.command = /^(wallpaper2?)$/i
 

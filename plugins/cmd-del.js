@@ -12,7 +12,7 @@ let handler = async (m, { text }) => {
 
 
 handler.help = ['cmd'].map(v => 'del' + v + ' <teks>')
-handler.tags = ['database']
+// handler.tags = ['database']
 handler.command = ['delcmd']
 
 export default handler

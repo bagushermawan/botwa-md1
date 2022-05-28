@@ -3,7 +3,7 @@ function handler(m, { text }) {
     m.reply(teks.replace(/[aiueo]/gi, '$&ve'))
 }
 handler.help = ['purba <teks>']
-handler.tags = ['fun']
+// handler.tags = ['fun']
 handler.command =  /^(purba)$/i
 
 
