@@ -1,10 +1,42 @@
 import Connection from "../lib/connection.js";
 import { randomBytes } from "crypto";
 
+// let handler = async (m, { conn, text }) => {
+//   let chats = Object.entries(Connection.store.chats)
+//     .filter(([_, chat]) => chat.isChats)
+//     .map((v) => v[0]);
+//   let cc = conn.serializeM(
+//     text ? m : m.quoted ? await m.getQuotedObj() : false || m
+//   );
+//   let teks = text ? text : cc.text;
+//   conn.reply(m.chat, `_Mengirim pesan broadcast ke ${chats.length} chat_`, m);
+//   for (let id of chats)
+//     await conn
+//       .copyNForward(
+//         id,
+//         conn.cMod(
+//           m.chat,
+//           cc,
+//           /bc|broadcast/i.test(teks)
+//             ? teks
+//             : "「 " +
+//                 author +
+//                 " All Chat Broadcast 」\n" +
+//                 "\n" +
+//                 readMore +
+//                 teks
+//         ),
+//         true
+//       )
+//       .catch((_) => _);
+//   m.reply("Selesai Broadcast All Chat :)");
+// };
+
 let handler = async (m, { conn, text }) => {
-  let chats = Object.entries(Connection.store.chats)
-    .filter(([_, chat]) => chat.isChats)
-    .map((v) => v[0]);
+  let chats = conn.chats
+    .all()
+    .filter((v) => !v.read_only && v.message && !v.archive)
+    .map((v) => v.jid);
   let cc = conn.serializeM(
     text ? m : m.quoted ? await m.getQuotedObj() : false || m
   );
@@ -19,12 +51,7 @@ let handler = async (m, { conn, text }) => {
           cc,
           /bc|broadcast/i.test(teks)
             ? teks
-            : "「 " +
-                author +
-                " All Chat Broadcast 」\n" +
-                "\n" +
-                readMore +
-                teks
+            : teks + "\n" + readMore + "「 All Chat Broadcast 」\n"
         ),
         true
       )
