@@ -40,7 +40,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
     if (!stiker) stiker = e;
   } finally {
     if (stiker) conn.sendFile(m.chat, stiker, "sticker.webp", "", m);
-    else throw "balas gambar dengan caption *${usedPrefix + command}*";
+    else throw `balas gambar dengan caption *${usedPrefix + command}*`;
   }
 };
 handler.help = [
