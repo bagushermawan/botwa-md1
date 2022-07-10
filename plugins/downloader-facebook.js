@@ -14,7 +14,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
       m
     );
 };
-handler.help = ["facebbok"].map((v) => v + " <url>");
+handler.help = ["facebbok", "fb"].map((v) => v + " <url>");
 // handler.tags = ['downloader']
 
 handler.command = /^((facebook|fb)(downloder|dl)?)$/i;
